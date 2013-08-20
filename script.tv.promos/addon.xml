@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.tv.promos" name="TV Promos" version="1.0.1" provider-name="Karrade">
+<addon id="script.tv.promos" name="TV Promos" version="1.0.2" provider-name="Karrade">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0"/>
 		<import addon="script.module.simplejson" version="2.0.10"/>
@@ -11,7 +11,7 @@
 	<extension point="xbmc.addon.metadata" name="tvpromos.metadata">
 		<language></language>
 		<summary lang="en">TV Episode Promo Downloader</summary>
-		<description lang="en">Made for Jeanette</description>
+		<description lang="en">Retrieve Promo "Trailers" for the next episode of a tv show and automatically play it.</description>
 		<email></email>    
 	</extension>
 </addon>

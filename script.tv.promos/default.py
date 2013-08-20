@@ -5,7 +5,7 @@ import sys, util
 import json
 import requests
 
-__addon__       = xbmcaddon.Addon()
+__addon__       = xbmcaddon.Addon('script.tv.promos')
 __addonname__   = __addon__.getAddonInfo('name')
 __icon__        = __addon__.getAddonInfo('icon')
 
@@ -49,7 +49,24 @@ class MyPlayer(xbmc.Player):
                 xbmc.sleep(1000)
         #END YOUTUBE CODE
         if __setting__ == 'Tv Rage':
-            util.notify("Under Construction")
+            if xbmc.getInfoLabel("VideoPlayer.TVShowTitle") == '':
+                self.varHasPlayed = "Yes"
+            else:
+                self.varHasPlayed = "No"
+
+                varShowName = xbmc.getInfoLabel("VideoPlayer.TVShowTitle")
+                varEpisodeTmp = xbmc.getInfoLabel("VideoPlayer.Episode")
+                varEpisodeNumber = int(varEpisodeTmp) + int(1)
+                varEpisode = xbmc.getInfoLabel("VideoPlayer.Season") + "x" + str(varEpisodeNumber)
+
+                varShowInfo = requests.get("http://services.tvrage.com/tools/quickinfo.php?show=" + varShowName + "&ep=" + varEpisode + "")
+                varShowInfo.text
+  
+                varEpisodeURL = util.extract(varShowInfo.text, "Episode URL@", "Latest")
+                varEpisodePage = requests.get(varEpisodeURL)
+                varEpisodePage.text
+                
+                self.varEpisodeVideo = util.extract(varEpisodePage.text, "},{ url: 'http", ".flv")
 
     def onPlayBackEnded(self):
         if self.varHasPlayed == "Yes":
@@ -61,7 +78,12 @@ class MyPlayer(xbmc.Player):
                 xbmc.executebuiltin("XBMC.PlayMedia(plugin://plugin.video.youtube/?action=play_video&videoid=" + self.varVideoID + ")")
 
             if __setting1__ == 'Tv Rage':
-                util.notify=("Under Construction")
+                if self.varEpisodeVideo == None:
+                    util.notify("Sorry no Promo Found")
+                else:
+                    util.PlayThis('http' + self.varEpisodeVideo + '.flv')
+                    #util.playMedia(__addon__.getAddonInfo('name'), __addon__.getAddonInfo('icon'), 'http' + self.varEpisodeVideo + '.flv')
+
 
     def onPlaybackStopped(self):
         pass
