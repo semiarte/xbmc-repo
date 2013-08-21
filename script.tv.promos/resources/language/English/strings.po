@@ -1,0 +1,77 @@
+# XBMC Media Center language file
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC-Addons\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: 2013-08-21 14:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+
+msgctxt "#30001"
+msgid "Live Streams"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Stream Source"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Youtube"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Tv Rage"
+msgstr ""
+
+msgctxt "#30005"
+msgid "     - Video Selection"
+msgstr ""
+
+#empty strings from id 30006 to 31000
+
+msgctxt "#31001"
+msgid "1"
+msgstr ""
+
+msgctxt "#31002"
+msgid "2"
+msgstr ""
+
+msgctxt "#31003"
+msgid "3"
+msgstr ""
+
+msgctxt "#31004"
+msgid "4"
+msgstr ""
+
+msgctxt "#31005"
+msgid "5"
+msgstr ""
+
+msgctxt "#31006"
+msgid "6"
+msgstr ""
+
+msgctxt "#31007"
+msgid "7"
+msgstr ""
+
+msgctxt "#31008"
+msgid "8"
+msgstr ""
+
+msgctxt "#31009"
+msgid "9"
+msgstr ""
+
+msgctxt "#31010"
+msgid "10"
+msgstr ""
