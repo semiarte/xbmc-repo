@@ -1,7 +1,18 @@
-import xbmc, xbmcgui, xbmcaddon
+import xbmc, xbmcgui, xbmcaddon, os, sys
+
+__addon__       = xbmcaddon.Addon('script.tv.promos')
+__cwd__ = xbmc.translatePath(__addon__.getAddonInfo('path')).decode("utf-8")
+BASE_RESOURCE_PATH = os.path.join(__cwd__, 'resources', 'lib')
+sys.path.append(BASE_RESOURCE_PATH)
+
+import requests
+
+def grabvideo(url, name, location):
+    r = requests.get(url)
+    with open(location + name + ".flv", "wb") as code:
+        code.write(r.content)
 
 def notify(message):
-    __addon__       = xbmcaddon.Addon('script.tv.promos')
     __addonname__   = __addon__.getAddonInfo('name')
     __icon__        = __addon__.getAddonInfo('icon')
 
@@ -23,5 +34,3 @@ def PlayThis(videolink):
     playlist.clear()
     playlist.add(videolink)
     xbmc.Player().play( playlist)
-    xbmc.sleep(1000)
-    xbmc.Player().pause()

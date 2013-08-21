@@ -1,8 +1,0 @@
-[B]Version 1.0.3[/B]
-- Changed strings.xml to strings.po (strings.xml will be deprecated after the release of Frodo)
-
-[B]Version 1.0.2[/B]
-- Added TV Rage Streaming
-
-[B]Version 1.0.1[/B]
-- Initial version

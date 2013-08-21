@@ -58,12 +58,12 @@ class MyPlayer(xbmc.Player):
             else:
                 self.varHasPlayed = "No"
 
-                varShowName = xbmc.getInfoLabel("VideoPlayer.TVShowTitle")
+                self.varShowName = xbmc.getInfoLabel("VideoPlayer.TVShowTitle")
                 varEpisodeTmp = xbmc.getInfoLabel("VideoPlayer.Episode")
                 varEpisodeNumber = int(varEpisodeTmp) + int(1)
                 varEpisode = xbmc.getInfoLabel("VideoPlayer.Season") + "x" + str(varEpisodeNumber)
 
-                varShowInfo = requests.get("http://services.tvrage.com/tools/quickinfo.php?show=" + varShowName + "&ep=" + varEpisode + "")
+                varShowInfo = requests.get("http://services.tvrage.com/tools/quickinfo.php?show=" + self.varShowName + "&ep=" + varEpisode + "")
                 varShowInfo.text
   
                 varEpisodeURL = util.extract(varShowInfo.text, "Episode URL@", "Latest")
@@ -71,6 +71,21 @@ class MyPlayer(xbmc.Player):
                 varEpisodePage.text
                 
                 self.varEpisodeVideo = util.extract(varEpisodePage.text, "},{ url: 'http", ".flv")
+
+                if self.varEpisodeVideo == None:
+                    pass
+                else:
+                    varStreamDown = xbmcaddon.Addon('script.tv.promos').getSetting("TVRageStream")
+                    if varStreamDown == 'Download':
+                        self.varStreamLocation = xbmcaddon.Addon('script.tv.promos').getSetting("TVRageLocation")
+                        if self.varStreamLocation == '':
+                            util.notify("Please check settings, TVRage Download Location")
+                        else:
+                            varVid = requests.get('http' + self.varEpisodeVideo + '.flv')
+                            with open(self.varStreamLocation + self.varShowName + ".flv", "wb") as code:
+                                code.write(varVid.content)
+                    else:
+                        pass
 
     def onPlayBackEnded(self):
         if self.varHasPlayed == "Yes":
@@ -85,7 +100,11 @@ class MyPlayer(xbmc.Player):
                 if self.varEpisodeVideo == None:
                     util.notify("Sorry no Promo Found")
                 else:
-                    util.PlayThis('http' + self.varEpisodeVideo + '.flv')
+                    varStreamDown1 = xbmcaddon.Addon('script.tv.promos').getSetting("TVRageStream")
+                    if varStreamDown1 == 'Download':
+                        util.PlayThis(self.varStreamLocation + self.varShowName + '.flv')
+                    else:
+                        util.PlayThis('http' + self.varEpisodeVideo + '.flv')
                    
 
     def onPlaybackStopped(self):

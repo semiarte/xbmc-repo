@@ -34,7 +34,23 @@ msgctxt "#30005"
 msgid "     - Video Selection"
 msgstr ""
 
-#empty strings from id 30006 to 31000
+msgctxt "#30006"
+msgid "     - Download or Stream TV Rage"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Stream"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Download"
+msgstr ""
+
+msgctxt "#30009"
+msgid "          - Save Location"
+msgstr ""
+
+#empty strings from id 30007 to 31000
 
 msgctxt "#31001"
 msgid "1"

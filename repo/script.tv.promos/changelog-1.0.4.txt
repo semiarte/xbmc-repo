@@ -1,0 +1,11 @@
+- Version 1.0.4
+	Added the Ability to Download the TV Rage Promo while watching the show.
+
+- Version 1.0.3
+	Changed strings.xml to strings.po (strings.xml will be deprecated after the release of Frodo)
+
+- Version 1.0.2
+	Added TV Rage Streaming
+
+- Version 1.0.1
+	Initial version
