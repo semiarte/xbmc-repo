@@ -2,4 +2,4 @@
 - Added TV Rage Streaming
 
 [B]Version 1.0.1[/B]
-- Initial version
+- Initial version.

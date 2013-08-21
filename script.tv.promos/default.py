@@ -1,13 +1,17 @@
 # Import the modules
-import urllib,urllib2,re
+import urllib,urllib2,re, os
 import xbmc, xbmcgui, xbmcaddon, xbmcplugin
 import sys, util
 import json
-import requests
 
 __addon__       = xbmcaddon.Addon('script.tv.promos')
 __addonname__   = __addon__.getAddonInfo('name')
 __icon__        = __addon__.getAddonInfo('icon')
+__cwd__ = xbmc.translatePath(__addon__.getAddonInfo('path')).decode("utf-8")
+BASE_RESOURCE_PATH = os.path.join(__cwd__, 'resources', 'lib')
+sys.path.append(BASE_RESOURCE_PATH)
+
+import requests
 
 time = 5000  #in miliseconds
 
@@ -82,8 +86,7 @@ class MyPlayer(xbmc.Player):
                     util.notify("Sorry no Promo Found")
                 else:
                     util.PlayThis('http' + self.varEpisodeVideo + '.flv')
-                    #util.playMedia(__addon__.getAddonInfo('name'), __addon__.getAddonInfo('icon'), 'http' + self.varEpisodeVideo + '.flv')
-
+                   
 
     def onPlaybackStopped(self):
         pass
@@ -96,3 +99,4 @@ while(not xbmc.abortRequested):
     xbmc.sleep(100)
 
 xbmc.log("script.tv.promos: Finished Running")
+

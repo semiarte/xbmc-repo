@@ -18,11 +18,6 @@ def extract(text, startText, endText):
             return text[start:end]
     return None
 
-def playMedia(title, thumbnail, link, mediaType='Video') :
-    li = xbmcgui.ListItem(label=title, iconImage=thumbnail, thumbnailImage=thumbnail, path=link)
-    li.setInfo(type=mediaType, infoLabels={ "Title": title })
-    xbmc.Player().play(item=link, listitem=li)
-
 def PlayThis(videolink):
     playlist = xbmc.PlayList( xbmc.PLAYLIST_VIDEO )
     playlist.clear()
