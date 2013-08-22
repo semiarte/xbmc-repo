@@ -21,7 +21,7 @@ class MyPlayer(xbmc.Player):
 
     def onPlayBackStarted(self):
         __setting__   = xbmcaddon.Addon('script.tv.promos').getSetting("StreamUrl")
-        varYoutubeSI = xbmcaddon.Addon('script.tv.promos').getSetting("StreamUrl")
+        varYoutubeSI = xbmcaddon.Addon('script.tv.promos').getSetting("YoutubeVideo")
         
         if __setting__ == 'Youtube':
         #START YOUTUBE CODE
@@ -77,7 +77,7 @@ class MyPlayer(xbmc.Player):
                 else:
                     varStreamDown = xbmcaddon.Addon('script.tv.promos').getSetting("TVRageStream")
                     if varStreamDown == 'Download':
-                        self.varStreamLocation = xbmcaddon.Addon('script.tv.promos').getSetting("TVRageLocation")
+                        self.varStreamLocation = xbmcaddon.Addon('script.tv.promos').getSetting("TVRageLocation")                   
                         if self.varStreamLocation == '':
                             util.notify("Please check settings, TVRage Download Location")
                         else:

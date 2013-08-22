@@ -1,11 +1,4 @@
-import xbmc, xbmcgui, xbmcaddon, os, sys
-
-__addon__       = xbmcaddon.Addon('script.tv.promos')
-__cwd__ = xbmc.translatePath(__addon__.getAddonInfo('path')).decode("utf-8")
-BASE_RESOURCE_PATH = os.path.join(__cwd__, 'resources', 'lib')
-sys.path.append(BASE_RESOURCE_PATH)
-
-import requests
+import xbmc, xbmcgui, xbmcaddon
 
 def grabvideo(url, name, location):
     r = requests.get(url)
@@ -13,6 +6,7 @@ def grabvideo(url, name, location):
         code.write(r.content)
 
 def notify(message):
+    __addon__       = xbmcaddon.Addon('script.tv.promos')
     __addonname__   = __addon__.getAddonInfo('name')
     __icon__        = __addon__.getAddonInfo('icon')
 

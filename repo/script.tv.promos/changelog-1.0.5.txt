@@ -1,3 +1,7 @@
+- Version 1.0.5
+	Everything working
+	Removing versions 1-4
+	
 - Version 1.0.4
 	Added the Ability to Download the TV Rage Promo while watching the show.
 
