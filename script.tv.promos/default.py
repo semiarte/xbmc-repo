@@ -1,19 +1,13 @@
-# Import the modules
-import urllib,urllib2,re, os
-import xbmc, xbmcgui, xbmcaddon, xbmcplugin
-import sys, util
-import json
+import xbmc, xbmcaddon, xbmcgui
+import os, sys
+import util
 
 __addon__       = xbmcaddon.Addon('script.tv.promos')
-__addonname__   = __addon__.getAddonInfo('name')
-__icon__        = __addon__.getAddonInfo('icon')
 __cwd__ = xbmc.translatePath(__addon__.getAddonInfo('path')).decode("utf-8")
 BASE_RESOURCE_PATH = os.path.join(__cwd__, 'resources', 'lib')
 sys.path.append(BASE_RESOURCE_PATH)
 
-import requests
-
-time = 5000  #in miliseconds
+import requests, json
 
 class MyPlayer(xbmc.Player):
     def __init__(self, *args):
@@ -109,10 +103,12 @@ class MyPlayer(xbmc.Player):
 
     def onPlaybackStopped(self):
         pass
-
+    
 xbmc.log("script.tv.promos: Started Running")
 
 player = MyPlayer()
+
+util.CheckforUpdate()
         
 while(not xbmc.abortRequested):
     xbmc.sleep(100)

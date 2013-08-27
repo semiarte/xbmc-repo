@@ -1,15 +1,11 @@
 import xbmc, xbmcgui, xbmcaddon
+from classfile import *
 
-def grabvideo(url, name, location):
-    r = requests.get(url)
-    with open(location + name + ".flv", "wb") as code:
-        code.write(r.content)
+__addon__       = xbmcaddon.Addon('script.tv.promos')
+__addonname__   = __addon__.getAddonInfo('name')
+__icon__        = __addon__.getAddonInfo('icon')
 
 def notify(message):
-    __addon__       = xbmcaddon.Addon('script.tv.promos')
-    __addonname__   = __addon__.getAddonInfo('name')
-    __icon__        = __addon__.getAddonInfo('icon')
-
     timeShown = 5000  #in miliseconds
  
     xbmc.executebuiltin('Notification(%s, %s, %d, %s)'%(__addonname__,message, timeShown, __icon__))
@@ -28,3 +24,24 @@ def PlayThis(videolink):
     playlist.clear()
     playlist.add(videolink)
     xbmc.Player().play( playlist)
+
+def CheckforUpdate():
+    old_version = __addon__.getSetting('VersionNumber').replace(".", "")
+    new_version = __addon__.getAddonInfo('version').replace(".", "")
+    varShowChanges = __addon__.getSetting('ShowChanges')
+    if int(old_version) < int(new_version):
+        if varShowChanges == 'Yes':
+            dialog = xbmcgui.Dialog()
+            i = dialog.yesno(__addonname__, "Would you like to display the changelog?")
+
+            if i == 0:
+                pass
+            else:
+                TextBox()
+        else:
+            pass
+
+        __addon__.setSetting('VersionNumber', __addon__.getAddonInfo('version'))
+    else:
+        pass
+    

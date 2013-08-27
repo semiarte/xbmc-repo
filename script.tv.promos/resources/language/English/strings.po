@@ -50,7 +50,27 @@ msgctxt "#30009"
 msgid "          - Save Location"
 msgstr ""
 
-#empty strings from id 30007 to 31000
+msgctxt "#30010"
+msgid "General"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Offer Changelog on Update"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Yes"
+msgstr ""
+
+msgctxt "#30013"
+msgid "No"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Last Version Number"
+msgstr ""
+
+#empty strings from id 30015 to 31000
 
 msgctxt "#31001"
 msgid "1"

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
+  <category label="30010">
+	<setting id="ShowChanges" type="labelenum" label="30011" lvalues="30012|30013" default="0" />
+	<setting id="VersionNumber" type="text" label="30014" visible="eq(-1,0)" default="0" />
+  </category>
+  
   <category label="30001">
     <setting id="StreamUrl" type="labelenum" label="30002" lvalues="30003|30004" default="0" />
     <setting id="YoutubeVideo" type="labelenum" label="30005" lvalues="31001|31002|31003|31004|31005|31006|31007|31008|31009|31010" visible="lt(-1,1)" default="" />
